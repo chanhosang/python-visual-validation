@@ -63,6 +63,11 @@ Download the ImageTester Version 1.4.5.2 binary jar file from [here](https://bin
 **Note:** If you choose to use a different version of the toool, please update the **IMAGE_TESTER_PATH** in *core/eyes_manager.py*.
 
 ## Run Test
+
+Assuming that you already have an account in applitools.com, get the **Applitools API key** from user profile and set a constant value of **APPLITOOLS_API_KEY** in *config/base.py*.
+
+**!!IMPORTANT: Don't check in the key to repository!**
+
 ### Organizing Tests in Test Suite
 
 There are two tests in 'organizing_test_suite' module, which click on the first name and the last name header and then take a screenshot to compare against the baseline.
