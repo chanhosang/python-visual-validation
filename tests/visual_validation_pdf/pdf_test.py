@@ -15,7 +15,7 @@ def setup(manager):
 
     yield manager
 
-
+@pytest.mark.pdf
 def test_pdf(setup):
     invoice_page = InvoicePage(setup.driver)
     invoice_page \

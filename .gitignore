@@ -13,3 +13,5 @@ __pycache__/
 
 # jar files
 **/*.jar
+report.html
+assets/style.css
