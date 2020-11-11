@@ -1,0 +1,15 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+.pytest_cache/
+
+# Environments
+**/.env
+
+# pdf files
+**/*.pdf
+
+# jar files
+**/*.jar
