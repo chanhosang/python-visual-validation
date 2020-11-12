@@ -64,7 +64,7 @@ Download the ImageTester Version 1.4.5.2 binary jar file from [here](https://bin
 
 ## Run Test
 
-Assuming that you already have an account in applitools.com, get the **Applitools API key** from user profile and set a constant value of **APPLITOOLS_API_KEY** in *config/base.py*.
+Assuming that you already have an account in applitools.com, get the **Applitools API key** from user profile and set as value for **APPLITOOLS_API_KEY** key in *config/.env*. You may refer to .*config/env.template* as reference.
 
 **!!IMPORTANT: Don't check in the key to repository!**
 
@@ -81,7 +81,7 @@ python -m pytest -m organize tests/organizing_test_suite --html=report.html
 
 If you want to filter test by marker (e.g. organize), just use the -m option and specify the desired marker name as follow:
 ```
-python -m pytest -m organize tests/organizing_test_suite --html=report.html 
+python -m pytest -m organize tests/organizing_test_suite --html=reports/report.html 
 ```
 *Note: Markers are basically tags for test cases. Any test can have any number of markers. pytest has a few standard markers, but you can add your own custom markers too.*
 
@@ -95,6 +95,6 @@ In 'visual_validation_pdf' module, here is the test scenario being automated:
   
 To run tests, run the following command from the project's root directory:
 ```
-python -m pytest tests/visual_validation_pdf --html=report.html 
+python -m pytest tests/visual_validation_pdf --html=reports/report.html 
 ```
 Once the test is completed, the comparison result will be published to [Applitools Website](https://eyes.applitools.com/app/test-results).

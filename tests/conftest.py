@@ -1,7 +1,6 @@
 import pytest
 import json
 from selenium import webdriver
-
 from core.eyes_manager import EyesManager
 
 
@@ -41,6 +40,8 @@ def driver(config):
         driver = webdriver.Chrome(options=opts)
     else:
         raise Exception(f'Browser "{config["browser"]}" is not supported')
+
+    driver.implicitly_wait(config['implicit_wait'])
 
     yield driver
     driver.quit()

@@ -3,10 +3,16 @@ import os
 from applitools.common import BatchInfo
 from applitools.selenium import Eyes
 
-from config.base import APPLITOOLS_API_KEY
 from core.helper import get_resources_dir_path
 from core.helper import get_libs_dir_path
 from core.io import execute_cmd
+
+# from config.base import APPLITOOLS_API_KEY
+import configparser
+config = configparser.ConfigParser()
+config.read('config/.env')
+APPLITOOLS_API_KEY = config['APPLITOOLS']['APPLITOOLS_API_KEY']
+
 
 IMAGE_TESTER_PATH = "{}/ImageTester_1.4.5.2.jar".format(get_libs_dir_path())
 
@@ -18,9 +24,12 @@ class EyesManager:
 
     @staticmethod
     def initialize_eyes():
-        eyes = Eyes()
-        eyes.api_key = APPLITOOLS_API_KEY
-        return eyes
+        if os.path.exists(IMAGE_TESTER_PATH):
+            eyes = Eyes()
+            eyes.api_key = APPLITOOLS_API_KEY
+            return eyes
+        else:
+            raise Exception(f'Unable to access jarfile:"{IMAGE_TESTER_PATH}". Please download from https://bintray.com/applitoolseyes/generic/ImageTester.')
 
     def set_app_name(self, app_name):
         self.app_name = app_name
@@ -44,6 +53,9 @@ class EyesManager:
 
     @staticmethod
     def validate_pdf():
+        print("validate_pdf.IMAGE_TESTER_PATH="+IMAGE_TESTER_PATH)
+        print("validate_pdf.APPLITOOLS_API_KEY="+APPLITOOLS_API_KEY)
+        print("validate_pdf.get_resources_dir_path()="+get_resources_dir_path())
         cmd = """java -jar {} -k {} -f {}""".format(IMAGE_TESTER_PATH,
                                                     APPLITOOLS_API_KEY,
                                                     get_resources_dir_path())
