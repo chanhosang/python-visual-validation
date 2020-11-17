@@ -19,8 +19,8 @@ def setup(manager):
 def test_pdf(setup):
     invoice_page = InvoicePage(setup.driver)
     invoice_page \
-        .enter_from_and_to_details('Gaurav', 'Rob') \
-        .enter_item_with_rate('Comics', '10') \
+        .enter_from_and_to_details('Ho Sang', 'Chan') \
+        .enter_item_with_rate('Comics', '1') \
         .click_on_get_link() \
         .download_pdf(EXPECTED_FILE_NAME) \
         .move_to_resources()

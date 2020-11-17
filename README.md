@@ -42,6 +42,12 @@ To initialize an empty virtual environment (virtualenv) and activate the environ
  pipenv --three
  pipenv shell
 ```
+
+To install [selenium](https://pypi.org/project/selenium/), run the following terminal command:
+```
+pipenv install selenium
+```
+
 To install [pytest](https://pypi.org/project/pytest/), run the following terminal command:
  ```
  pipenv install pytest
